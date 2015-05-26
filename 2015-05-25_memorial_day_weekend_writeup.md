@@ -100,7 +100,7 @@ margin
 height
 width
 
-**What is the difference between relative and absolute poitions in CSS?**
+**What is the difference between relative and absolute positions in CSS?**
 
 ..
 
@@ -118,53 +118,96 @@ Examples of block elements are \<p>, \<div>, and \<span> and examples of inline 
 
 **Git Branches: What are they? What are they used for?**
 
-..
+The are versions of our files. We can create a new branch, move to it, and alter our files, then when we go back to the old branch, our files are in the state that we last saved them on that old branch. Our new branch has our files in a different state.
+
+Typically people use branches when they are collaborating on the same files with other people. Each person creates their own branch to work on, makes all of the changes they want to, then merges their branch back onto the master branch. Any conflicts need to be edited by hand before the new branch can be merged to the master branch. The master branch is like the production branch, or the "always the most current working version" that other people will copy from before they start editing files.
 
 **What's the difference between git and github?**
 
-..
+git is version control. We use it to keep copies of our files every time we commit the files using the `git commit <file name>` command. It's like saving a snapshot of our file at that point in time. We can keep track of as many versions of our file as we want.
+
+GitHub is a website where we can view our file version and provides a visual way to see what the differences are between versions. We use it to collaborate with other people on repositories. Each person uses git on their local machine to save, stage, and push changes up to the repository on GitHub.
 
 **Identify all of the truthy and falsy values in JS and explain what it means to be “truthy” and “falsy”.**
 
-..
+Falsy values are:
+
+- 0 (zero)
+- "" (empty string)
+- false
+- null
+- undefined
+- NaN
+
+All other values are truthy. Examples of truthy are:
+
+- true
+- {}
+- []
+- any number that is not zero
+- a string
+
+To be "truthy" something "exists". When it is evaluated in a Boolean context, as whether or not it is something that exists, it returns "true".
+
+Falsy values are empty values or are values that do not exist. They return as false when evaluated in a Boolean context.
 
 **How do you access elements inside of an array?**
 
-..
+There are a few ways to do this. To access just a single item, we would use the built-in method indexOf followed by a number, to get the element at the index with the corresponding number. 
+
+Additionally, ee could use a for loop to iterate through each item in the array and use the variable to correspond to the index of the array item. We could also use the built-in method forEach to loop through each item, simliar to the for loop.
 
 **What's the difference between arrays and objects?**
 
-..
+An array is like a list, but with brackets [ ]. The items in the array can be accessed by their spot (index) in the array, moved around, added to or subtracted from the array.
+
+An object is like an array, but with keys (names) instead of indexes, to access specific values in the object. Anything can be put inside of an object and and object is usually designated by curly braces { }.
 
 **How do you create arrays and objects?**
 
-..
+Syntax:
+
+- array is shown using [ ]
+- object is shown using { }
+
+Items inside of both are separated with a comma. We can initialize them like so:
+
+	var myArr = [1,3,"third element in array"];
+
+	var myObj = { key1 : "value 1", key2 : "value2" };
+
 
 **How do you access values inside an object?**
 
-..
+With the name of the key. Items inside of objects are in pairs of key(name):value. Calling the object name followed by the key name would give us the value of the item at that key.
 
 **Describe the three components of a for loop.**
 
-..
+First we set a variable equal to a starting value (initialize it), then we give an ending value, that the variable will be true until it reaches this ending value (conditional or test statement), and thirdly we change the variable so that it moves towards the ending value (iteration). An example would be to start at zero, end at 10, and add 1 to the value until the variable value is equal to 10.
 
 **Name three types of HTML mouse events.**
 
-..
+Click, dbclick (double click), and mouseover are all mouse events.
 
 **What is event propagation?**
 
-..
+When an eventListener is added to an element on a page, and the eventListener is called, it is also called on any element that is either a parent of that element or a child of that element. The direction of the propagation is determined by an argument of 'true' or 'false' passed in as the third argument to the eventListener. 
+
+The default behavior of eventListeners is to "bubble upwards" and the corresponding argument for this is 'false'. If this is set, then the element and all parent elements, including the and the document, will all have the eventListener applied to them. For example, clicking on a \<p> inside of a \<div> causes the action inside of the event handler to be applied to the \<p>, then the \<div>, then the \<body>, then the document.
+
+If the third eventListener argument is set to 'true' then the element and all children elements inside of it, get the eventListener applied to them.
 
 **What is npm?**
 
-..
+npm is a package manager for code, or a way to share modules of code with other people. It is sort of like version control for smaller pieces of code that people share via the npm registry.
 
 **What are npm modules? How do you install an npm module?**
 
-..
+npm module are files with code that are created to be modular. This means that they can be re-used for different purposes and modified. Instead of having one gigantic program, we break the program apart into modules that do very specific things, and then we can re-use those modules in other programs or repeatedly inside of the same program.
+
+You can install an npm module from the command line with the command `npm install <package name>`.
 
 **Describe the execution of a while loop and the potential for infinite loops.**
 
-..
+A while loop runs repeatedly while a certain condition is true. We need to include a way to alter the value that the condition is testing in order for the while loop to stop at some point. If the contition is always true, then it will run infinitely and then our program is stuck in a loop, or our browser running the program will not be able to continue doing other things on that tab.
 
