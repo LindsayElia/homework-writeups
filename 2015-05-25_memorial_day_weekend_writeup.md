@@ -1,5 +1,7 @@
 ###Memorial Day Weekend Writeup
-Date completed: 05/25/15
+Date started: 05/25/15
+Date completed: 
+8 questions still to be answered
 
 **List and describe each of the primitive data types (number, string, boolean, null, undefined). What do they each represent?**
 
@@ -30,13 +32,36 @@ A reason to use variables instead of the actual value is so that we can change t
 
 **Describe in precise terms what’s happening with variable assignment using “var keyword”, “identifier”, “value”, “assign” etc…**
 
-..
+###incomplete...
 
-**Evaluate the following expression: **
+
+**Evaluate the following expression:**
 
 	!(typeof(9) === typeof(9.5) && (99 == "99" || !true))
 
-...
+The whole expression is false.
+
+	typeof(9) === typeof(9.5)
+
+`typeof` evaluates an item and returns its type as a string. Both (9) and (9.5) are numbers. The === means exactly equal, which they are. 
+
+	99 == "99"
+
+99 and "99" are sort of equal, so the == will work. Javascript uses type coercion to compare these and if they are *sort of* equal then this returns true. 
+
+	99 == "99" || !true
+
+This part uses an OR statement, so only one of the values needs to be true. The left side is tru and the right side is false. The whole expression is true.
+
+The left side of the && is true:
+
+	typeof(9) === typeof(9.5)
+	
+and the right side is true: 
+
+	(99 == "99" || !true)
+
+so everything inside of the outermost parenthesis is true. The ! symbol means "not" so the full expression is false.
 
 **Use a for loop to iterate through an array.**
 
@@ -46,10 +71,9 @@ A reason to use variables instead of the actual value is so that we can change t
 		console.log(i);	 //will show the current item in the array in the console
 	}
 
-
 **Define functions using declarations and expressions.**
 
-..
+###incomplete...
 
 **Articulate the difference between defining and invoking a function.**
 
@@ -61,35 +85,58 @@ For example, a function `drive` would be an explanation of how to drive a car fr
 
 **Describe how data flows into a function (by passing in arguments).**
 
-..
+###incomplete...
 
 **Describe how data flows out of functions (by using the return keyword).**
 
-..
+###incomplete...
 
 **"Functions are just values" - explain.**
 
-..
+###incomplete...
 
 **Write functions that return values.**
 
-..
+###incomplete...
 
 **Write functions that have side effects, such as logging to the console or manipulating DOM.**
 
-..
+This function will add two numbers and also log them in the console:
+
+	var addMe = function(x,y){
+		z = x + y;
+		console.log(z);		// shows the value of z in the console
+		return z;			// returns the value of z
+	}
+	
+This function will multiply two numbers and also alert the result in the browser:
+
+	var multiplyMe = function(x,y){
+		z = x * y;
+		alert(z);	// shows the value of z in an alert box in the browser
+		return z;	// returns the value of z
+	}
+	
 
 **Explain the difference between locally-scoped and globally scoped variables and write examples of each.**
 
-..
+A locally scoped variable can be accessed and used by the function or object it is scoped in, and by any functions, objects, etc, that are nested inside of that same scope. Functions outside of that scope can not see or use the locally scoped variable in a neighboring scope.
+
+Global variables are initialized in the outermost scope of the program, and can be accessed by any part of the program.
+
+If an inner scope modifies a variable but does not save that value as the new value of the variable by using the `return` keyword, then the global scope will remain unchanged.
 
 **Define ‘type coercion’ and identify instances when it occurs.**
 
-..
+Type coercion is JavaScript's way of evaluating values that are *sort of* like each other. If an expression has two values, one as a number type and one as a string type, for example, the number 9 and a string "9"
+
+###incomplete...
 
 **Explain what the DOM is. Where does it live? What is it for? How does it get created?**
 
-..
+DOM stands for Document Object Model.
+
+###incomplete...
 
 **Describe the CSS Box model. What 5 properties affect the box model?**
 
