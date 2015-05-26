@@ -93,16 +93,23 @@ For example, a function `drive` would be an explanation of how to drive a car fr
 
 **Describe the CSS Box model. What 5 properties affect the box model?**
 
-..
-padding
-border
-margin
-height
-width
+The CSS Box model is the visual box model, or interpretation, of any HTML element. The inside of the box is the content. So, for example, if you have HTML of `<p>This is a little box!</p>` the content inside of the box is the text "This is a little box!", the element is the \<p> and the height and width can be set to a size. Immediately surrounding the content inside is the padding. Immediately surrounding the padding is the border. Immediately surrounding the border is the margin. 
+
+Think of the margin as the piece that touches other elements' margins on the page. The padding is the space between the content and the border. The border is invisible by default but it can be shown by adding a size and color to it.
+
+The 5 properties that affect the box model are:
+
+- padding
+- border
+- margin
+- height
+- width
 
 **What is the difference between relative and absolute positions in CSS?**
 
-..
+The relative position means "relative to itself." If you do not set any of the positioning attributes (top, left, bottom, right), then you will see no change. If you set `top: 10px;` for example, then the element will shift 10px down from where it would originally have been positioned. Giving an element `postion: relative` will also set it on top of any elements that are `position: static`. Also, any element that is a child of the relatively positioned element can be absolutely positioned within that block.
+
+The absolute position means you can set the element to an exact location on the page, relatice to the next parent element, by giving it coordinates to use for the positioning attributes (top, left, bottom, right). These elements are taken out of the normal flow of elements (which is from top to bottom as they are found in the HTML document).
 
 **What is the difference between block and inline elements?**
 
