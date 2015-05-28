@@ -1,7 +1,7 @@
 ###Memorial Day Weekend Writeup
 Date started: 05/25/15
-Date completed: 
-8 questions still to be answered
+
+Date completed: 05/27/15
 
 **List and describe each of the primitive data types (number, string, boolean, null, undefined). What do they each represent?**
 
