@@ -32,7 +32,17 @@ A reason to use variables instead of the actual value is so that we can change t
 
 **Describe in precise terms what’s happening with variable assignment using “var keyword”, “identifier”, “value”, “assign” etc…**
 
-###incomplete...
+The `var` keyword is when we put `var` before a variable name to declare it. We can either declare, declare and define the variable later, or declare and define the variable at the same time with one expression such as:
+
+     var myNewColor = “red”;
+     
+In this example, `var` is the keyword, `myNewColor` is the identifier, `“red”` is the value, and `=` is the assignment operator.
+
+Identifier is the name, the word that we are using to identify the variable.
+
+The value is the thing we assign the variable to be set as.
+
+Assigning is not the same as comparing equivalence, rather, it is like defining a word in a dictionary, the word is the variable and the definition is the value.
 
 
 **Evaluate the following expression:**
@@ -73,7 +83,54 @@ so everything inside of the outermost parenthesis is true. The ! symbol means "n
 
 **Define functions using declarations and expressions.**
 
-###incomplete...
+Functions can be created a few ways. One is to use a *function declaration*, with the syntax like so:
+
+	function yaass(){
+		return "whoop";
+	}
+	
+Another is to use a *function expression*, with the syntax like so:
+
+	var hellooio = function(){
+		return "I said...";
+	}
+	
+A *function declaration* can be called, or invoked, at any time or point in our program, and the program will return the result. For example:
+
+	yaass();
+	
+	function yaass(){
+		return "whoop";
+	}
+	
+	//=> "whoop"
+	
+This is because JavaScript scans our program and looks for all *functions* first, before running through and executing the rest of our code line by line.
+
+A *function declaration* is always a named function.
+
+A *function expression* can NOT be called at any time in our program. It must be invoked *after* it has been declared and defined. Otherwise, if we have not declared it, we will get error saying that it is not defined, and if we have not defined it, we will get an error saying that it is not a function. For example: 
+
+	hellooio();
+
+	var hellooio = function(){
+		return "I said...";
+	}
+	
+	//=> Uncaught TypeError: hellooio is not a function
+
+A *function expression* can either be named or anonymous.
+
+	//anonymous function expression:
+	var a = function() {
+    	return 5+5;
+	}
+ 
+	//named function expression:
+	var a = function addTen() {
+    	return 5+5;
+	}
+	//The name of this function expression is 'addTen'
 
 **Articulate the difference between defining and invoking a function.**
 
@@ -85,19 +142,65 @@ For example, a function `drive` would be an explanation of how to drive a car fr
 
 **Describe how data flows into a function (by passing in arguments).**
 
-###incomplete...
+We can have data that lives outside of the function, such as a variable that we have defined a value for, and pass it into a function and do something to that data, or variable, and return the result of what we did to it. 
+
+	name = "Lindsay";					// line 1
+	
+	function nameLength(anything){		// line 3
+		 nameSize = anything.length;	// line 4
+		 return nameSize;				// line 5
+	}									// line 6
+	
+	nameLength(name);					// line 8
+	//=> 7
+	
+In this example, the data we are passing is a variable. On line 8 we are telling the function `nameLength` to use the variable `name` as our parameter.
+
+The parameter in the function is called `anything` so wherever we see `anything` inside of the function, we do something to the parameter we passed in.
 
 **Describe how data flows out of functions (by using the return keyword).**
 
-###incomplete...
+In the above example with `function nameLength(anything)` we are returning the result of the expressions inside of the function. On line 5 we use the `return` keyword to return the variable `nameSize`. We have set the variable `nameSize` to the value of whatever name.length is.
+
+So when we call the function on line 8 we can see the value that is returned, which is the number `7`.
+
+The `return` makes the data available outside of the function. If we did not use `return` then the expression on line 4 would be evaluated but it would be "stuck" inside of our function and we would not have access to it in the scope outside of the function.
 
 **"Functions are just values" - explain.**
 
-###incomplete...
+This means that functions can be used anywhere in our program, the same way that we would use a value. We can pass a function into another function as a parameter. We can evaluate two functions to see if they are "sort of" equal to each other (I think?). We can call functions from anywhere in our program that has access to the scope they live in.
 
 **Write functions that return values.**
 
-###incomplete...
+This function returns two strings combined as one string with a space between them:
+
+	var firstName = "Raya";
+	var lastName = "Kitteh";
+	
+	function fullName(first, last){
+		return first + " " + last;
+	}
+	
+	fullName(firstName, lastName);
+	//=> "Raya Kitteh"
+	
+	var alsoFirst = "Minnie";
+	var alsoLast = "Mouse"
+	
+	fullName(alsoFirst, alsoLast);
+	//=> "Minnie Mouse"
+	
+This function returns the sum of two numbers:
+
+	function addMe(x,y){
+		return x + y;
+	}
+	
+	x = 3;
+	y = 4;
+	addMe(x,y);
+	//=> 7
+
 
 **Write functions that have side effects, such as logging to the console or manipulating DOM.**
 
@@ -130,13 +233,28 @@ If an inner scope modifies a variable but does not save that value as the new va
 
 Type coercion is JavaScript's way of evaluating values that are *sort of* like each other. If an expression has two values, one as a number type and one as a string type, for example, the number 9 and a string "9"
 
-###incomplete...
+The double equals `==` evaluates whether two items are *sort of* like each other. The triple equals `===` evaluates whether two items have exactly the same value, or are *stricly equal*.
+
+	9 == "9" 	// is true
+	
+	9 === "9"	// is false
+	
+The `==` converts one of the values to the same type as the other value before comparing them. The `===` will compare without converting the type on the value.
+
+When comparing numbers and strings with type coercion, or *sort of equal*, JavaScript will convert the string to a number for us, if it can be converted.
+
+JavaScript will do type coercion on strings, numbers, booleans, or objects.
+
+JavaScript does this "behind the scenes" where we can not see the coercion happening.
+
 
 **Explain what the DOM is. Where does it live? What is it for? How does it get created?**
 
-DOM stands for Document Object Model.
+DOM stands for Document Object Model. It lives in the browser and it is the browser's rendering of our HTML, CSS, and JavaScript files. I write HTML in a document and the browser parses it and converts it to a visual representation of the code I wrote.
 
-###incomplete...
+The DOM is nifty because it will "fix" our code if it can. When I open my HTML file with a browser and view the Developer Tools, if I have a minor mistake in my code, the version that the browser creates will not have that mistake in its code.
+
+We use JavaScript to talk to the elements in our document. The DOM is where all of the action takes place.
 
 **Describe the CSS Box model. What 5 properties affect the box model?**
 
@@ -156,7 +274,7 @@ The 5 properties that affect the box model are:
 
 The relative position means "relative to itself." If you do not set any of the positioning attributes (top, left, bottom, right), then you will see no change. If you set `top: 10px;` for example, then the element will shift 10px down from where it would originally have been positioned. Giving an element `postion: relative` will also set it on top of any elements that are `position: static`. Also, any element that is a child of the relatively positioned element can be absolutely positioned within that block.
 
-The absolute position means you can set the element to an exact location on the page, relatice to the next parent element, by giving it coordinates to use for the positioning attributes (top, left, bottom, right). These elements are taken out of the normal flow of elements (which is from top to bottom as they are found in the HTML document).
+The absolute position means you can set the element to an exact location on the page, relative to the next parent element, by giving it coordinates to use for the positioning attributes (top, left, bottom, right). These elements are taken out of the normal flow of elements (which is from top to bottom as they are found in the HTML document).
 
 **What is the difference between block and inline elements?**
 
